@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Excell_On_Service.Models.SubService>;
+@{
+    ViewData["Title"] = "Sub Services";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+    <div class="row">
+        <h1 class="text-center py-4">@TempData["Servive_Heading"]</h1>
+    </div>
+    <div class="row p-5 shadow-lg mb-3">
+        @foreach(var item in Model)
+        {
+            <a asp-action="SubServicesDetail" asp-controller="Services" class="text-decoration-none col-4 mb-3" asp-route-id="@item.SubServiceId">
+                <div class="card text-black" style="width: 18rem;">
+                    <img src="~/SubServiceImages/@item.ServiceImage" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h3 class="card-title">@item.SubServiceName</h3>
+                        <p class="card-text">@item.SubServiceDescription.</p>
+                        <h5 class="card-content">Charges: $@item.SubServiceCharges</h5>
+                        <h3 class="btn btn-primary">Buy Service</h3>
+                    </div>
+                </div>
+            </a>
+        }
+    </div>
+</div>
+

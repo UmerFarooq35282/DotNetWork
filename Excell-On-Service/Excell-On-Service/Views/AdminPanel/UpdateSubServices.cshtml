@@ -1,0 +1,150 @@
+﻿@model Excell_On_Service.Models.SubService;
+@{
+    ViewData["Title"] = "Update Service";
+    Layout = "~/Views/Shared/_AdminPanelLayout.cshtml";
+}
+
+<section class="is-hero-bar">
+    <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
+        <h1 class="title">
+            @ViewData["Title"]
+        </h1>
+    </div>
+</section>
+
+<section class="section main-section">
+    <div class="grid grid-cols-1 gap-6 lg:grid-cols-2 mb-6">
+        <div class="card">
+            <header class="card-header">
+                <p class="card-header-title">
+                    <span class="icon"><i class="mdi mdi-account-circle"></i></span>
+
+                </p>
+            </header>
+            <div class="card-content">
+                <form asp-action="UpdateSubServices" enctype="multipart/form-data">
+                    <div asp-validation-summary="All"></div>
+                    @* <div class="field">
+                    <label class="label">Image Upload</label>
+                    <div class="field-body">
+                    <div class="field file">
+                    <label class="upload control">
+                    <a class="button blue">
+                    Upload
+                    </a>
+                    <input type="file" asp-for="Image" name="img">
+                    </label>
+                    </div>
+                    </div>
+                    </div> *@
+                    <input type="hidden" asp-for="SubServiceId" />
+                    <div class="field">
+                        <label class="label">Name</label>
+                        <div class="field-body">
+                            <div class="field">
+                                <div class="control">
+                                    <input type="file" asp-for="ServiceImage" accept=".jpg , .jpeg , .png , .gif , .bmp" autocomplete="on" name="img" class="input" required>
+                                </div>
+                                <span asp-validation-for="ServiceImage"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="field">
+                        <label class="label">Name</label>
+                        <div class="field-body">
+                            <div class="field">
+                                <div class="control">
+                                    <input type="text" asp-for="SubServiceName" class="input" required>
+                                </div>
+                                <span asp-validation-for="SubServiceName"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">E-mail</label>
+                        <div class="field-body">
+                            <div class="field">
+                                <div class="control">
+                                    <input type="text" asp-for="SubServiceCode" class="input" required>
+
+                                </div>
+                                <span asp-validation-for="SubServiceCode"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Description</label>
+                        <div class="control">
+                            <textarea class="textarea" asp-for="SubServiceDescription" placeholder="Enter Description here"></textarea>
+                        </div>
+                        <span asp-validation-for="SubServiceDescription"></span>
+                    </div>
+                    <div class="field">
+                        <label class="label">Salary</label>
+                        <div class="field-body">
+                            <div class="field">
+                                <div class="control">
+                                    <input type="text" asp-for="SubServiceCharges" autocomplete="on" class="input" required>
+
+                                </div>
+                                <span asp-validation-for="SubServiceCharges"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Select Service</label>
+                        <div class="control">
+                            <div class="select">
+                                <select asp-items="@ViewBag.ServiceId" asp-for="ServiceId"></select>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="field">
+                        <div class="control">
+                            <button type="submit" class="button green">
+                                Submit
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="card">
+            <header class="card-header">
+                <p class="card-header-title">
+                    <span class="icon"><i class="mdi mdi-account"></i></span>
+                    Profile
+                </p>
+            </header>
+            <div class="card-content">
+                <div class="image w-48 h-48 mx-auto">
+                    <img src="~/SubServiceImages/@Model.ServiceImage" alt="John Doe" class="rounded-full">
+                </div>
+                <hr>
+                <div class="field">
+                    <label class="label">Name</label>
+                    <div class="control">
+                        <input type="text" readonly value="@Model.SubServiceName" class="input is-static">
+                    </div>
+                </div>
+                <hr>
+                <div class="field">
+                    <label class="label">E-mail</label>
+                    <div class="control">
+                        <input type="text" readonly value="@Model.SubServiceCharges" class="input is-static">
+                    </div>
+                </div>
+                <hr>
+                <div class="field">
+                    <label class="label">Role</label>
+                    <div class="control">
+                        <input type="text" readonly value="@Model.SubServiceCode" class="input is-static">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

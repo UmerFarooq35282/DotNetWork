@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="48d39d36201b47f5b1986d2aa2a7de27" Name="Diagram1">
+        <EntityTypeShape EntityType="CozaStoreDbModel.CartDetail" Width="1.5" PointX="5.25" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CozaStoreDbModel.Category" Width="1.5" PointX="0.75" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CozaStoreDbModel.Customer" Width="1.5" PointX="3" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CozaStoreDbModel.OrderDetail" Width="1.5" PointX="8.25" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CozaStoreDbModel.Product" Width="1.5" PointX="3" PointY="2.375" IsExpanded="true" />
+        <AssociationConnector Association="CozaStoreDbModel.FK__CartDetai__Custo__31EC6D26" ManuallyRouted="false" />
+        <AssociationConnector Association="CozaStoreDbModel.FK__CartDetai__Produ__32E0915F" ManuallyRouted="false" />
+        <AssociationConnector Association="CozaStoreDbModel.FK__Products__Catego__29572725" ManuallyRouted="false" />
+        <AssociationConnector Association="CozaStoreDbModel.FK__OrderDeta__Custo__37A5467C" ManuallyRouted="false" />
+        <AssociationConnector Association="CozaStoreDbModel.FK__OrderDeta__Produ__38996AB5" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

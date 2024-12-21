@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "SignUpClient";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>SignUpClient</h2>
+
+<div class="row">
+    <h1 class="text-center">
+        Captcha Practice
+    </h1>
+</div>
+<div>
+    <h1>
+        @if(TempData["SubmitMsg"] != null){
+           @TempData["SubmitMsg"]
+        }
+    </h1>
+</div>
+<div class="row">
+    <form action="\SignUp\CaptchaCheck">
+        <div>
+            <label class="form-label">Enter Captcha Word Here</label>
+            <input class="form-control" name="KeyWord" />
+        </div>
+        <div class="mt-5">
+            <label class="form-label">Captcha here</label>
+            <img src="\SignUp\Captcha" class="img-fluid" />
+        </div>
+        <div class="mt-4">
+            <input type="submit" value="Submit" class="btn btn-primary"/>
+        </div>
+    </form>
+</div>

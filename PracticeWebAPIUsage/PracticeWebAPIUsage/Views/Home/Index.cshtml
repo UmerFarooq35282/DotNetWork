@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="row mb-5">
+    <h1>Departments</h1>
+    <select class="form-select">
+        @foreach (var i in ViewBag.DList)
+        {
+            <option value="@i.DepartmentId">@i.DepartmentName (@i.ArabicName)</option>
+        }
+
+    </select>
+</div>
+<div class="row mt-5">
+    <table class="table table-bordered table-striped table-hover" >
+        <thead>
+            <tr>
+                <th>Dept Id</th>
+                <th>Dept Name</th>
+                <th>Status</th>
+                <th>Rating</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var i in ViewBag.DList)
+            {
+                <tr>
+                    <td>@i.DepartmentId</td>
+                    <td><a href="/Home/About?id=@i.DepartmentId" class="text-dark">@i.DepartmentName ----> (@i.ArabicName)</a></td>
+                    <td>@i.Status</td>
+                    <td>@i.Rating</td>
+                </tr>
+
+            }
+        </tbody>
+    </table>
+</div>

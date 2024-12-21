@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Excell_On_Service.Models.Service>;
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container">
+    <div class="row">
+        <h1 class="text-center my-5">
+            Our Main Services
+        </h1>
+    </div>
+    <div class="row shadow-lg py-5 ps-5 align-content-center">
+        @foreach (var item in Model)
+        {
+            <a asp-action="GetSubServices" asp-controller="Services" class="text-decoration-none col-4" asp-route-id="@item.ServiceId">
+                <div class="card text-black" style="width: 18rem;">
+                    <img src="~/MainServiceImage/@item.MainServiceImg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h3 class="card-title">@item.ServiceName</h3>
+                        <p class="card-text">@item.ServiceDescription.</p>
+                        <h5 class="card-content">Charges: $@item.ServiceCharges</h5>
+                    </div>
+                </div>
+            </a>
+        }
+    </div>
+</div>
+

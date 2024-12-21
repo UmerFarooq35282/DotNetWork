@@ -1,0 +1,29 @@
+﻿@model CrudWithMvc.Models.Category;
+@{
+    ViewData["Title"] = "EditCategory";
+}
+
+<h1>EditCategory</h1>
+
+<div class="container">
+    <div class="row d-flex justify-content-center align-items-center p-5">
+        <div class=" col-6 p-5">
+            <form asp-action="EditCategory" method="post">
+                <div asp-validation-summary="ModelOnly"></div>
+                <input type="hidden" asp-for="CategoryId" />
+                <div>
+                    <label class="form-label h3 mb-4" asp-for="CategoryName"></label>
+                    <input asp-for="CategoryName" class="p-2 form-control" />
+                    <span class="bg-danger" asp-validation-for="CategoryName"></span>
+                </div>
+                <div>
+                    <label class="form-label h3 mb-4" asp-for="Slug"></label>
+                    <input asp-for="Slug" class="p-2 form-control" />
+                    <span class="bg-danger" asp-validation-for="Slug"></span>
+                </div>
+                <input type="submit" class="h3 mt-4 btn btn-primary w-100" />
+            </form>
+        </div>
+    </div>
+</div>
+

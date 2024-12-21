@@ -1,0 +1,62 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<button class="btn btn-primary m-2" id="AddEmployee"> Add Employee</button>
+<table class="table  table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>State</th>
+            <th>City</th>
+            <th>Salary</th>
+            <th>Opreation</th>
+        </tr>
+    </thead>
+    <tbody id="table_data">
+
+    </tbody>
+</table>
+
+<div class="modal fade" id="EmployeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="CrossClose">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form method="post">
+                    <div class="form-group">
+                        <label class="">Name</label>
+                        <input class="form-control" placeholder="Enter Name" id="Name" autocomplete="off" type="text" />
+                    </div>
+                    <div class="form-group">
+                        <label class="">State</label>
+                        <input class="form-control" placeholder="Enter State" id="State" autocomplete="off" type="text" />
+                    </div>
+                    <div class="form-group">
+                        <label class="">City</label>
+                        <input class="form-control" placeholder="Enter City" id="City" autocomplete="off" type="text" />
+                    </div>
+                    <div class="form-group">
+                        <label class="">Salary</label>
+                        <input class="form-control" placeholder="Enter Salary" id="Salary" autocomplete="off" type="text" />
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary"  data-dismiss="modal" id="Modal_close">Close</button>
+                <button type="button" class="btn btn-primary" onclick="AddEmployee()" id="AddSaveChanges">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/js/custom.js"></script>

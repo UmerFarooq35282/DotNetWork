@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\MvcMovies1.props" />
+</Project>

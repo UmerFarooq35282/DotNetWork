@@ -1,0 +1,29 @@
+﻿@model AdminPanel.Models.Category;
+
+@{
+    ViewData["Title"] = "Create Product";
+}
+
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+        <div class="col-sm-12 col-xl-11">
+            <div class="bg-secondary rounded h-100 p-4">
+                <h6 class="mb-4">Create Category</h6>
+                <form action="CreateCategory" method="post" enctype="multipart/form-data">
+                    <div asp-validation-summary="All"></div>
+                    <div class="mb-3">
+                        <label asp-for="CategoryName" for="exampleInputEmail1" class="form-label"></label>
+                        <input asp-for="CategoryName" class="form-control" id="exampleInputEmail1">
+                        <span asp-validation-for="CategoryName" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="Slug" for="exampleInputEmail1" class="form-label"></label>
+                        <input asp-for="Slug" class="form-control" id="exampleInputEmail1">
+                        <span asp-validation-for="Slug" class="text-danger"></span>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Sign in</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

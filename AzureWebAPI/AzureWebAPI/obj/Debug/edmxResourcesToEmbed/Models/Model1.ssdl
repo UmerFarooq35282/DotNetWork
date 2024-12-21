@@ -1,0 +1,201 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ExcellOnServiceModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CartsDetail">
+    <Key>
+      <PropertyRef Name="CartId" />
+    </Key>
+    <Property Name="CartId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SubServiceId" Type="int" Nullable="false" />
+    <Property Name="ClientId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Departments">
+    <Key>
+      <PropertyRef Name="DepartmentId" />
+    </Key>
+    <Property Name="DepartmentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DepartmentName" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PymentDetail">
+    <Key>
+      <PropertyRef Name="PaymentId" />
+    </Key>
+    <Property Name="PaymentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CardType" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="CardNumber" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CardCvv" Type="nvarchar" MaxLength="3" Nullable="false" />
+    <Property Name="Address" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ClientId" Type="int" Nullable="false" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Services">
+    <Key>
+      <PropertyRef Name="ServiceId" />
+    </Key>
+    <Property Name="ServiceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ServiceName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="MainServiceImg" Type="nvarchar(max)" />
+    <Property Name="ServiceDescription" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ServiceCode" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ServiceCharges" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SubServices">
+    <Key>
+      <PropertyRef Name="SubServiceId" />
+    </Key>
+    <Property Name="SubServiceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SubServiceName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ServiceImage" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SubServiceDescription" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SubServiceCode" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SubServiceCharges" Type="int" Nullable="false" />
+    <Property Name="ServiceId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TblClient">
+    <Key>
+      <PropertyRef Name="ClientId" />
+    </Key>
+    <Property Name="ClientId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ClientName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ClientEmail" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ClientPhoto" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ClientAddress" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ClientPhone" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ClientPassword" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ClientCPassword" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TblEmployee">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Address" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CPassword" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="City" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Image" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="RoleEmploye" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Salary" Type="real" Nullable="false" />
+    <Property Name="PhoneNumber" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DepartmentId" Type="int" Nullable="false" />
+    <Property Name="ServiceId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_CartsDetail_SubServices_SubServiceId">
+    <End Role="SubServices" Type="Self.SubServices" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CartsDetail" Type="Self.CartsDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SubServices">
+        <PropertyRef Name="SubServiceId" />
+      </Principal>
+      <Dependent Role="CartsDetail">
+        <PropertyRef Name="SubServiceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CartsDetail_TblClient_ClientId">
+    <End Role="TblClient" Type="Self.TblClient" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CartsDetail" Type="Self.CartsDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblClient">
+        <PropertyRef Name="ClientId" />
+      </Principal>
+      <Dependent Role="CartsDetail">
+        <PropertyRef Name="ClientId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PymentDetail_TblClient_ClientId">
+    <End Role="TblClient" Type="Self.TblClient" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="PymentDetail" Type="Self.PymentDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblClient">
+        <PropertyRef Name="ClientId" />
+      </Principal>
+      <Dependent Role="PymentDetail">
+        <PropertyRef Name="ClientId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubServices_Services_ServiceId">
+    <End Role="Services" Type="Self.Services" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="SubServices" Type="Self.SubServices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Services">
+        <PropertyRef Name="ServiceId" />
+      </Principal>
+      <Dependent Role="SubServices">
+        <PropertyRef Name="ServiceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TblEmployee_Departments_DepartmentId">
+    <End Role="Departments" Type="Self.Departments" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="TblEmployee" Type="Self.TblEmployee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departments">
+        <PropertyRef Name="DepartmentId" />
+      </Principal>
+      <Dependent Role="TblEmployee">
+        <PropertyRef Name="DepartmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TblEmployee_Services_ServiceId">
+    <End Role="Services" Type="Self.Services" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="TblEmployee" Type="Self.TblEmployee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Services">
+        <PropertyRef Name="ServiceId" />
+      </Principal>
+      <Dependent Role="TblEmployee">
+        <PropertyRef Name="ServiceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ExcellOnServiceModelStoreContainer">
+    <EntitySet Name="CartsDetail" EntityType="Self.CartsDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Departments" EntityType="Self.Departments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PymentDetail" EntityType="Self.PymentDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Services" EntityType="Self.Services" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SubServices" EntityType="Self.SubServices" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TblClient" EntityType="Self.TblClient" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TblEmployee" EntityType="Self.TblEmployee" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_CartsDetail_SubServices_SubServiceId" Association="Self.FK_CartsDetail_SubServices_SubServiceId">
+      <End Role="SubServices" EntitySet="SubServices" />
+      <End Role="CartsDetail" EntitySet="CartsDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CartsDetail_TblClient_ClientId" Association="Self.FK_CartsDetail_TblClient_ClientId">
+      <End Role="TblClient" EntitySet="TblClient" />
+      <End Role="CartsDetail" EntitySet="CartsDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PymentDetail_TblClient_ClientId" Association="Self.FK_PymentDetail_TblClient_ClientId">
+      <End Role="TblClient" EntitySet="TblClient" />
+      <End Role="PymentDetail" EntitySet="PymentDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubServices_Services_ServiceId" Association="Self.FK_SubServices_Services_ServiceId">
+      <End Role="Services" EntitySet="Services" />
+      <End Role="SubServices" EntitySet="SubServices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TblEmployee_Departments_DepartmentId" Association="Self.FK_TblEmployee_Departments_DepartmentId">
+      <End Role="Departments" EntitySet="Departments" />
+      <End Role="TblEmployee" EntitySet="TblEmployee" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TblEmployee_Services_ServiceId" Association="Self.FK_TblEmployee_Services_ServiceId">
+      <End Role="Services" EntitySet="Services" />
+      <End Role="TblEmployee" EntitySet="TblEmployee" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,63 @@
+﻿@model LoginTemplate.Models.LoginUser;
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - LoginTemplate</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/LoginTemplate.styles.css" asp-append-version="true" />
+    </head>
+    <body>
+        <section class="vh-100">
+            <div style="height:100px">
+            @{
+                if (TempData["Error"] != null)
+                {
+                    <div class="alert alert-danger" role="alert">
+                        Error! @TempData["Error"].
+                    </div>
+                }
+            }
+             </div>
+  <div class="container-fluid h-custom">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-md-9 col-lg-6 col-xl-5">
+        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+          class="img-fluid" alt="Sample image">
+      </div>
+      <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+        <form asp-controller="Logins">
+          <!-- Email input -->
+          <div class="form-outline mb-4">
+            <label class="form-label" for="form3Example3">Email address</label>
+            <input asp-for="Email" type="email" id="form3Example3" class="form-control form-control-lg"
+              placeholder="Enter a valid email address" />            
+          </div>
+
+          <!-- Password input -->
+          <div class="form-outline mb-3">
+            <label class="form-label" for="form3Example4">Password</label>
+            <input asp-for="Password" type="password" id="form3Example4" class="form-control form-control-lg"
+              placeholder="Enter password" />            
+          </div>
+          <div class="text-center text-lg-start mt-4 pt-2">
+            <button asp-action="Index" type="submit" class="btn btn-primary btn-lg"
+              style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button>
+            <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a
+                class="link-danger" asp-controller="Logins" asp-action="Register">Register</a></p>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+    </body>
+</html>

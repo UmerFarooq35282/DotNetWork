@@ -1,0 +1,29 @@
+﻿@model CrudWithMvc.Models.Category;
+@{
+    ViewData["Title"] = "DeleteCategory";
+}
+
+<h1>DeleteCategory</h1>
+
+<h1>Are you sure to delete this category</h1>
+<hr />
+
+<dl class="row">
+    <dt>
+        @Html.DisplayNameFor(item => item.CategoryName)
+    </dt>
+    <dd>
+        @Html.DisplayFor(item => item.CategoryName)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(item => item.Slug)
+    </dt>
+    <dd>
+        @Html.DisplayFor(item => item.Slug)
+    </dd>
+</dl>
+
+<form action="ConfirmDelete" method="post">
+    <input asp-for="CategoryId" type="text" />
+    <input type="submit" class="btn-danger" />
+</form>

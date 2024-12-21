@@ -1,0 +1,47 @@
+﻿@model List<FunPracticeProject.Models.Student>;
+
+@{
+    ViewData["Title"] = "Students";
+}
+<h2>@ViewData["Title"].ToString()</h2>
+
+<form>
+    <button class="btn btn-primary" asp-action="" asp-controller="">Add Student</button>
+    <table class="table table-responsive table-hover table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Student Name</th>
+                <th>Father Name</th>
+                <th>Class</th>
+                <th>Address</th>
+            </tr>
+            
+        </thead>
+        <tbody>
+            @if(Model != null && Model.Any())
+            {
+                @foreach(var student in Model)
+                {
+                    <tr>
+                        <td>@student.id</td>
+                        <td>@student.SName</td>
+                        <td>@student.FName</td>
+                        <td>@student.SClass</td>
+                        <td>@student.SAddress</td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="6">
+                        <div>
+                            No Student Record Available Now
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</form>

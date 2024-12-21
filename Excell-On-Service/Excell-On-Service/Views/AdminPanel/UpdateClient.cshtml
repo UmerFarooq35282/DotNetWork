@@ -1,0 +1,170 @@
+﻿@model Excell_On_Service.Models.Client;
+@{
+    ViewData["Title"] = TempData["Page_Title"];
+    Layout = "~/Views/Shared/_AdminPanelLayout.cshtml";
+}
+
+<section class="is-hero-bar">
+    <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
+        <h1 class="title">
+            @ViewData["Title"]
+        </h1>
+    </div>
+</section>
+
+<section class="section main-section">
+    <div class="grid grid-cols-1 gap-6 lg:grid-cols-2 mb-6">
+        <div class="card">
+            <header class="card-header">
+                <p class="card-header-title">
+                    <span class="icon"><i class="mdi mdi-account-circle"></i></span>
+                    Edit Client
+                </p>
+            </header>
+            <div class="card-content">
+                <form asp-action="UpdateClient" enctype="multipart/form-data" method="post">
+                    <div asp-validation-summary="All"></div>
+                    @* <div class="field">
+                    <label class="label">Image Upload</label>
+                    <div class="field-body">
+                    <div class="field file">
+                    <label class="upload control">
+                    <a class="button blue">
+                    Upload
+                    </a>
+                    <input type="file" asp-for="Image" name="img">
+                    </label>
+                    </div>
+                    </div>
+                    </div> *@
+                    <input type="hidden" asp-for="ClientId" />
+                    <div class="field">
+                        <label class="label">Name</label>
+                        <div class="field-body">
+                            <div class="field">
+                                <div class="control">
+                                    <input type="file" asp-for="ClientPhoto" value="@Model.ClientPhoto" name="img" class="input" required>
+                                </div>
+                                <span asp-validation-for="ClientPhoto"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="field">
+                        <label class="label">Name</label>
+                        <div class="field-body">
+                            <div class="field">
+                                <div class="control">
+                                    <input type="text" asp-for="ClientName" value="@Model.ClientName" class="input" required>
+                                </div>
+                                <span asp-validation-for="ClientName"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">E-mail</label>
+                        <div class="field-body">
+                            <div class="field">
+                                <div class="control">
+                                    <input type="email" asp-for="ClientEmail" value="@Model.ClientEmail" class="input" required>
+
+                                </div>
+                                <span asp-validation-for="ClientEmail"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Address</label>
+                        <div class="field-body">
+                            <div class="field">
+                                <div class="control">
+                                    <input type="text" asp-for="ClientAddress" value="@Model.ClientAddress" class="input" required>
+
+                                </div>
+                                <span asp-validation-for="ClientAddress"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Phone</label>
+                        <div class="field-body">
+                            <div class="field">
+                                <div class="control">
+                                    <input type="text" asp-for="ClientPhone" value="@Model.ClientPhone" class="input" required>
+
+                                </div>
+                                <span asp-validation-for="ClientPhone"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">New Password</label>
+                        <div class="field-body">
+                            <div class="field">
+                                <div class="control">
+                                    <input type="password" asp-for="ClientPassword" class="input" required>
+
+                                </div>
+                                <span asp-validation-for="ClientPassword"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Confirm Password</label>
+                        <div class="field-body">
+                            <div class="field">
+                                <div class="control">
+                                    <input type="password" asp-for="ClientCPassword" class="input" required />
+                                </div>
+                                <span asp-validation-for="ClientCPassword"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="field">
+                        <div class="control">
+                            <button type="submit" class="button green" >
+                                Submit
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="card">
+            <header class="card-header">
+                <p class="card-header-title">
+                    <span class="icon"><i class="mdi mdi-account"></i></span>
+                    Profile
+                </p>
+            </header>
+            <div class="card-content">
+                <div class="image w-48 h-48 mx-auto" style="margin-bottom:60px;">
+                    <img src="~/ClientImage/@Model.ClientPhoto" alt="John Doe" class="rounded-full">
+                </div>
+                <div></div>
+                <div class="field">
+                    <label class="label">Name</label>
+                    <div class="control">
+                        <input type="text" readonly value="@Model.ClientName" class="input is-static">
+                    </div>
+                </div>
+                <hr>
+                <div class="field">
+                    <label class="label">E-mail</label>
+                    <div class="control">
+                        <input type="text" readonly value="@Model.ClientEmail" class="input is-static">
+                    </div>
+                </div>
+                <hr>
+                <div class="field">
+                    <label class="label">Password</label>
+                    <div class="control">
+                        <input type="text" readonly value="@Model.ClientPassword" class="input is-static">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DiscoveryClientResultsFile xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Results>
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="https://localhost:44349/PracticeAPI.svc?xsd=xsd2" filename="PracticeAPI.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="https://localhost:44349/PracticeAPI.svc?xsd=xsd1" filename="PracticeAPI0.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="https://localhost:44349/PracticeAPI.svc?xsd=xsd0" filename="PracticeAPI1.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="https://localhost:44349/PracticeAPI.svc?wsdl" filename="PracticeAPI.wsdl" />
+  </Results>
+</DiscoveryClientResultsFile>

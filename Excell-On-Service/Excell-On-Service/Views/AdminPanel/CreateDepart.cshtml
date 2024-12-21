@@ -1,0 +1,48 @@
+﻿@model Excell_On_Service.Models.Department;
+@{
+    ViewData["Title"] = "Create Department";
+    Layout = "~/Views/Shared/_AdminPanelLayout.cshtml";
+}
+
+<section class="is-hero-bar">
+    <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
+        <h1 class="title">
+            @ViewData["Title"]
+        </h1>
+    </div>
+</section>
+
+<section class="section main-section">
+    <div class="card mb-6">
+        <header class="card-header">
+            <p class="card-header-title">
+                <span class="icon"><i class="mdi mdi-ballot"></i></span>
+                @ViewData["Title"]
+            </p>
+        </header>
+        <div class="card-content">
+            <form method="post">
+                <div asp-validation-summary="ModelOnly"></div>
+                <div class="field">
+                    <label class="label">Department Name</label>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control icons-left">
+                                <input class="input" type="text" placeholder="Department Name" asp-for="DepartmentName">
+                                <span class="icon left"><i class="mdi mdi-settings "></i></span>
+                                <span asp-validation-for="DepartmentName"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="field grouped">
+                    <div class="control">
+                        <button type="submit" asp-action="CreateDepart" asp-controller="AdminPanel" class="button green">
+                            Create department
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

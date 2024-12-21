@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewData["Title"] = "AskQuestion";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container flex align-items-center justify-content-center" style="height:100vh; align-items:center; justify-content:center; display;flex;">
+    <div class="row">
+        <h1>
+            Select role you want to login
+        </h1>
+        <form method="post" style="width:50vw; ">
+            <div class="form-group">
+                <label class="form-label">
+                    Role
+                </label>
+                <select class="form-control" name="role">
+                    <option>Employee</option>
+                    <option>Client</option>
+                </select>
+            </div>
+            <a class="btn btn-primary mt-4" asp-action="AskQuestion" asp-controller="Employees" asp-route-name="">Next</a>
+        </form>
+    </div>
+</div>
+

@@ -1,0 +1,10 @@
+C:\Users\Mr. Umer Farooq\source\repos\PracticePictureViewer\PracticePictureViewer\bin\Debug\PracticePictureViewer.exe.config
+C:\Users\Mr. Umer Farooq\source\repos\PracticePictureViewer\PracticePictureViewer\bin\Debug\PracticePictureViewer.exe
+C:\Users\Mr. Umer Farooq\source\repos\PracticePictureViewer\PracticePictureViewer\bin\Debug\PracticePictureViewer.pdb
+C:\Users\Mr. Umer Farooq\source\repos\PracticePictureViewer\PracticePictureViewer\obj\Debug\PracticePictureViewer.csproj.AssemblyReference.cache
+C:\Users\Mr. Umer Farooq\source\repos\PracticePictureViewer\PracticePictureViewer\obj\Debug\PracticePictureViewer.Form1.resources
+C:\Users\Mr. Umer Farooq\source\repos\PracticePictureViewer\PracticePictureViewer\obj\Debug\PracticePictureViewer.Properties.Resources.resources
+C:\Users\Mr. Umer Farooq\source\repos\PracticePictureViewer\PracticePictureViewer\obj\Debug\PracticePictureViewer.csproj.GenerateResource.cache
+C:\Users\Mr. Umer Farooq\source\repos\PracticePictureViewer\PracticePictureViewer\obj\Debug\PracticePictureViewer.csproj.CoreCompileInputs.cache
+C:\Users\Mr. Umer Farooq\source\repos\PracticePictureViewer\PracticePictureViewer\obj\Debug\PracticePictureViewer.exe
+C:\Users\Mr. Umer Farooq\source\repos\PracticePictureViewer\PracticePictureViewer\obj\Debug\PracticePictureViewer.pdb
